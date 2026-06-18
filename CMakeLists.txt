@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(DSA_FullRevision main.cpp
         1-Arrays/Arrays_Exersice.cpp
-        1-Arrays/Arrays_Exersice.h)
+        1-Arrays/Arrays_Exersice.h
+        2-HashSets_HashMap/HashSets_HashMaps.cpp
+        2-HashSets_HashMap/HashSets_HashMaps.h)
