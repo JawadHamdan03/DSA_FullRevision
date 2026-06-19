@@ -7,4 +7,6 @@ add_executable(DSA_FullRevision main.cpp
         1-Arrays/Arrays_Exersice.cpp
         1-Arrays/Arrays_Exersice.h
         2-HashSets_HashMap/HashSets_HashMaps.cpp
-        2-HashSets_HashMap/HashSets_HashMaps.h)
+        2-HashSets_HashMap/HashSets_HashMaps.h
+        3-LinkedList/LinkedList.cpp
+        3-LinkedList/LinkedList.h)
