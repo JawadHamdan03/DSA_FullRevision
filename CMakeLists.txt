@@ -9,4 +9,6 @@ add_executable(DSA_FullRevision main.cpp
         2-HashSets_HashMap/HashSets_HashMaps.cpp
         2-HashSets_HashMap/HashSets_HashMaps.h
         3-LinkedList/LinkedList.cpp
-        3-LinkedList/LinkedList.h)
+        3-LinkedList/LinkedList.h
+        3-LinkedList/DoublyLinkedList.cpp
+        3-LinkedList/DoublyLinkedList.h)

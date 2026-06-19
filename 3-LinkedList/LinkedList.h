@@ -27,6 +27,7 @@ public:
     void prepend(int val);
     void insert(int index,int val);
     void remove(int index);
+    void reverse();
     void print();
 };
 

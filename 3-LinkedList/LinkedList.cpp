@@ -79,6 +79,23 @@ void LinkedList::remove(int index)
     length--;
 }
 
+void LinkedList::reverse()
+{
+    Node * prevNode=nullptr;
+    Node * curr= head;
+
+
+    while (curr)
+    {
+        Node * nextNode=curr->next;
+        curr->next=prevNode;
+        prevNode=curr;
+        curr=nextNode;
+    }
+    head=prevNode;
+
+}
+
 void LinkedList::print()
 {
     Node * curr=head;

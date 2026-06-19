@@ -25,5 +25,6 @@ int main()
     l1->remove(3);
     l1->remove(20);
     cout <<"linkedList1: ";l1->print();
-
+    l1->reverse();
+    cout <<"linkedList1: ";l1->print();
 }
