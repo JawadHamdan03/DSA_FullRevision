@@ -38,7 +38,49 @@ void DoublyLinkedList::prepend(int val)
     node->next=head;
     head->prev=node;
     head=node;
+    length++;
 }
 
+
+void DoublyLinkedList::insert(int index,int val)
+{
+    if (!head)
+        return;
+    if (index>length-1)
+        return;
+
+    DoublyNode * curr =head;
+    while (index && curr->next)
+    {
+        curr=curr->next;
+        index--;
+    }
+    DoublyNode * node = new DoublyNode(val);
+
+    node->next=curr->next;
+    node->prev=curr;
+    curr->next->prev=node;
+    curr->next=node;
+}
+
+
+void DoublyLinkedList::remove(int index)
+{
+    if (!head)
+        return;
+    if (index>length-1)
+        return;
+    index--;
+    DoublyNode * curr = head;
+    while (index-- && curr->next)
+    {
+        curr=curr->next;
+    }
+
+    auto toDelete= curr->next;
+    curr->next=toDelete->next;
+    toDelete->next->prev=curr;
+    delete toDelete;
+}
 
 

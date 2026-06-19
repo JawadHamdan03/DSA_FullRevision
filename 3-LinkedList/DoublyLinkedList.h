@@ -27,6 +27,8 @@ public:
 
     void append(int val);
     void prepend(int val);
+    void insert(int index,int val);
+    void remove(int index);
 };
 
 
