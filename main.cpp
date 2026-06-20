@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    MyQueue<int> qu;
+    Queue<int> qu;
     int x;
     for (int i = 0; i < 5; ++i)
     {
