@@ -11,4 +11,6 @@ add_executable(DSA_FullRevision main.cpp
         3-LinkedList/LinkedList.cpp
         3-LinkedList/LinkedList.h
         3-LinkedList/DoublyLinkedList.cpp
-        3-LinkedList/DoublyLinkedList.h)
+        3-LinkedList/DoublyLinkedList.h
+        "4- Stacks_Queues/Stacks_Queues.cpp"
+        "4- Stacks_Queues/Stacks_Queues.h")
