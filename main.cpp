@@ -17,6 +17,8 @@ int main()
     bst->insert(9);
     bst->insert(2);
     bst->insert(3);
+    bst->insert(4);
+    bst->insert(11);
 
    bst->print_BFS_Iterative();
 
