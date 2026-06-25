@@ -42,16 +42,6 @@ void BinarySearchTree::insertRecursive(TreeNode * rt,int val)
     }
 }
 
-void BinarySearchTree::printInOrderRecursive(TreeNode *rt)
-{
-    if (!rt)
-        return;
-    printInOrderRecursive(rt->left);
-    cout << rt->val<<'\t';
-    printInOrderRecursive(rt->right);
-}
-
-
 void BinarySearchTree::insert(int val)
 {
     TreeNode* node = new TreeNode(val);
@@ -81,6 +71,15 @@ void BinarySearchTree::insert(int val)
                 curr=curr->right;
         }
     }
+}
+
+void BinarySearchTree::printInOrderRecursive(TreeNode *rt)
+{
+    if (!rt)
+        return;
+    printInOrderRecursive(rt->left);
+    cout << rt->val<<'\t';
+    printInOrderRecursive(rt->right);
 }
 
 bool BinarySearchTree::lookup(int val)
@@ -119,12 +118,161 @@ bool BinarySearchTree::lookupRecursive(TreeNode* rt, int val)
 }
 
 
+void BinarySearchTree::print_BFS_Iterative()
+{
+    if (!root)
+        return;
+    queue<TreeNode *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        int length = q.size();
+        for (int i = 0; i < length; ++i)
+        {
+            TreeNode * front=q.front();
+            q.pop();
+            cout << front->val<<'\t';
+            if (front->left)
+                q.push(front->left);
+            if (front->right)
+                q.push(front->right);
+        }
+        cout << endl;
+    }
+}
+
+
+void BinarySearchTree::print_DFS_Iterative()
+{
+    if (!root)
+        return;
+    stack<TreeNode *> st;
+    st.push(root);
+    while (!st.empty())
+    {
+        TreeNode * top=st.top();
+        st.pop();
+        cout << top->val<<'\t';
+        if (top->right)
+            st.push(top->right);
+        if (top->left)
+            st.push(top->left);
+    }
+}
 
 
 
+int BinarySearchTree::treeSumRecursive(TreeNode *root)
+{
+    if (!root)
+        return 0;
+
+    return root->val+treeSumRecursive(root->left)+treeSumRecursive(root->right);
+}
+
+int BinarySearchTree::treeSumIterative()
+{
+    if (!root)
+        return 0;
+    queue<TreeNode*> q;
+    q.push(root);
+    int sum=0;
+    while (!q.empty())
+    {
+        int length= q.size();
+        for (int i = 0; i < length; ++i)
+        {
+            TreeNode * front = q.front();
+            q.pop();
+            sum+=front->val;
+            if (front->left)
+                q.push(front->left);
+            if (front->right)
+                q.push(front->right);
+        }
+    }
+    return sum;
+}
 
 
+bool BinarySearchTree::includes_BFS(int val)
+{
+    if (!root)
+        return false;
+    queue<TreeNode*> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        int length = q.size();
+        for (int i = 0; i < length; ++i)
+        {
+            TreeNode * front = q.front();
+            if (front->val==val)
+            {
+                return true;
+            }
+            q.pop();
+            if (front->left)
+                q.push(front->left);
+            if (front->right)
+                q.push(front->right);
+        }
+    }
+    return false;
+}
 
 
+bool BinarySearchTree::includes_DFS(TreeNode *root, int val)
+{
+    if (!root)
+        return false;
+    if (root->val==val)
+        return true;
+    return includes_DFS(root->left,val) || includes_DFS(root->right,val);
+}
 
 
+int BinarySearchTree::minValue_Iterative_BFS()
+{
+    if (!root)
+        return -1;
+    queue<TreeNode *> q;
+    q.push(root);
+    int min_val=INT_MAX;
+    while (!q.empty())
+    {
+        int length = q.size();
+        for (int i = 0; i < length; ++i)
+        {
+            TreeNode* front= q.front();
+            q.pop();
+
+            min_val=min(min_val,front->val);
+
+            if (front->left)
+                q.push(front->left);
+            if (front->right)
+                q.push(front->right);
+        }
+    }
+    return min_val;
+}
+
+int BinarySearchTree::minValue_Recursive_DFS(TreeNode *root, int min_val)
+{
+    if (!root)
+        return min_val;
+    min_val=min(min_val,root->val);
+    return min(minValue_Recursive_DFS(root->left,min_val),minValue_Recursive_DFS(root->right,min_val));
+}
+
+
+int BinarySearchTree::max_root_leaf_sum(TreeNode *root, int sum)
+{
+    if (!root)
+        return sum;
+    return max( max_root_leaf_sum(root->left,root->val+sum),
+                max_root_leaf_sum(root->right,root->val+sum));
+
+}

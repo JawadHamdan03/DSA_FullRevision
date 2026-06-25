@@ -12,30 +12,15 @@ using namespace std;
 
 int main()
 {
-    // auto bst =new BinarySearchTree(5);
-    // bst->insert(8);
-    // bst->insert(9);
-    // bst->insert(2);
-    // bst->insert(3);
-    //
-    // bst->printInOrderRecursive(bst->root);
-    // cout <<endl<<bst->lookupRecursive(bst->root,3);
-    // cout <<endl<<bst->lookupRecursive(bst->root,4);
-    // cout <<endl<<bst->lookupRecursive(bst->root,6);
-    // cout <<endl<<bst->lookupRecursive(bst->root,9);
+    auto bst =new BinarySearchTree(5);
+    bst->insert(8);
+    bst->insert(9);
+    bst->insert(2);
+    bst->insert(3);
 
+   bst->print_BFS_Iterative();
 
-    priority_queue<int> pq;
-    pq.emplace(1);
-    pq.emplace(8);
-    pq.emplace(4);
-    pq.emplace(12);
-    pq.emplace(2);
+    cout <<endl<<bst->max_root_leaf_sum(bst->root)<<endl;;
 
-    while (!pq.empty())
-    {
-        cout << pq.top()<<'\t';
-        pq.pop();
-    }
 
 }
